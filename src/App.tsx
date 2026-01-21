@@ -4,31 +4,7 @@ import Applications from "./Applications";
 import Header from "./Header";
 import { Button } from "./ui/Button/Button";
 import { Pagination } from "./ui/Pagination/Pagination";
-
-export type LoanType = "Flexi-Loan" | "Business Loan" | "Cash Advance" | "RLS" | "CBILS";
-
-export interface LoanHistory {
-  loan_started: string;
-  loan_ended: string;
-  principle: number;
-  interest_rate: number;
-  interest: number;
-}
-
-export interface Application {
-  id: number;
-  first_name: string;
-  last_name: string;
-  email: string;
-  company: string;
-  loan_amount: number;
-  loan_type: LoanType;
-  date_created: string;
-  expiry_date: string;
-  avatar: string;
-  loan_history: LoanHistory[];
-}
-
+import { Application } from "./types";
 
 function App() {
   const [applicationsData, setApplicationsData] = useState<Application[]>([]);
@@ -52,6 +28,7 @@ function App() {
       );
 
       if (!res.ok) {
+        // this could be a better error message with info about the error would also display a snackbar or toast to the user for feedback
         throw new Error(`There was an error fetching the applications: ${res.status}`);
       }
       const data = await res.json() as Application[];

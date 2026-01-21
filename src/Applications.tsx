@@ -1,13 +1,9 @@
 import React from "react";
 import SingleApplication from "./SingleApplication";
 import styles from "./Applications.module.css";
-import { Application } from "./App";
+import { Application } from "./types";
 
-interface ApplicationsProps {
-  applicationsData: Application[];
-}
-
-const Applications: React.FC<ApplicationsProps> = ({ applicationsData }) => {
+const Applications: React.FC<{ applicationsData: Application[] }> = ({ applicationsData }) => {
   const applicationsWithIds = applicationsData.map((application, index) => ({
     ...application,
     id: index + 1,

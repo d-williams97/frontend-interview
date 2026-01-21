@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./SingleApplication.module.css";
-import { Application } from "./App";
+import { Application } from "./types";
 
 interface SingleApplicationProps {
   application: Application;

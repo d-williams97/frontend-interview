@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Applications from './Applications';
-import { Application } from './App';
+import { Application } from './types';
 
 // Mock data - 5 fake applications for testing
 const mockApplications: Application[] = [
