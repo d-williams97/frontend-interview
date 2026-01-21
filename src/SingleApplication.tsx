@@ -13,12 +13,13 @@ const formatDate = (dateString: string): string => {
   const year = date.getFullYear();
   return `${day}-${month}-${year}`;
 };
-
 const formatCurrency = (amount: number): string => {
   return `£${amount.toLocaleString()}`;
 };
 
+
 const SingleApplication: React.FC<SingleApplicationProps> = ({ application }) => {
+  console.log(application);
   return (
     <div className={styles.SingleApplication}>
       <div className={styles.cell}>
