@@ -2,4 +2,27 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+  .Applications {
+    max-width: 100%;
+    padding: 0 12px;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 768px) {
+  .Applications {
+    padding: 0 8px;
+  }
+}
+
+/* Small mobile breakpoint */
+@media (max-width: 480px) {
+  .Applications {
+    padding: 0 4px;
+  }
 }

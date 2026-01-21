@@ -2,17 +2,23 @@
   display: grid;
   grid-template-columns: 15% 15% auto 15% 15% 15%;
   padding: 20px;
-
   background-color: white;
   box-shadow: 0px 5px 16px 0px rgba(173, 200, 215, 0.25);
   border-radius: 10px;
   margin-bottom: 1rem;
+  gap: 8px;
 }
 
 .cell {
   text-align: left;
   border-right: 1px solid #eee;
   padding: 0 15px;
+  min-width: 0;
+  word-wrap: break-word;
+}
+
+.cell:last-child {
+  border-right: none;
 }
 
 .cell sub {
@@ -20,4 +26,64 @@
   font-size: 0.8rem;
   color: #999;
   margin-bottom: 5px;
+  white-space: nowrap;
+}
+
+/* Tablet breakpoint (768px - 1024px) */
+@media (max-width: 1024px) {
+  .SingleApplication {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .cell {
+    border-right: none;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .cell:nth-child(3n) {
+    border-right: none;
+  }
+}
+
+/* Mobile breakpoint (< 768px) */
+@media (max-width: 768px) {
+  .SingleApplication {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 16px;
+  }
+
+  .cell {
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    padding: 12px 8px;
+  }
+
+  .cell:last-child {
+    border-bottom: none;
+  }
+
+  .cell sub {
+    font-size: 0.75rem;
+    margin-bottom: 4px;
+  }
+}
+
+/* Small mobile breakpoint (< 480px) */
+@media (max-width: 480px) {
+  .SingleApplication {
+    padding: 12px;
+    margin-bottom: 0.75rem;
+  }
+
+  .cell {
+    padding: 10px 4px;
+  }
+
+  .cell sub {
+    font-size: 0.7rem;
+  }
 }

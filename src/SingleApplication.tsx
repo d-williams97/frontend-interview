@@ -1,7 +1,24 @@
 import React from "react";
 import styles from "./SingleApplication.module.css";
+import { Application } from "./App";
 
-const SingleApplication = ({ application }) => {
+interface SingleApplicationProps {
+  application: Application;
+}
+
+const formatDate = (dateString: string): string => {
+  const date = new Date(dateString);
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = date.getFullYear();
+  return `${day}-${month}-${year}`;
+};
+
+const formatCurrency = (amount: number): string => {
+  return `£${amount.toLocaleString()}`;
+};
+
+const SingleApplication: React.FC<SingleApplicationProps> = ({ application }) => {
   return (
     <div className={styles.SingleApplication}>
       <div className={styles.cell}>
@@ -17,16 +34,16 @@ const SingleApplication = ({ application }) => {
         {application.email}
       </div>
       <div className={styles.cell}>
-        <sub>Loan Amount</sub>
-        {application.loan_amount}
+        <sub>Loan amount</sub>
+        {formatCurrency(application.loan_amount)}
       </div>
       <div className={styles.cell}>
-        <sub>Application Date</sub>
-        {application.date_created}
+        <sub>Application date</sub>
+        {formatDate(application.date_created)}
       </div>
       <div className={styles.cell}>
         <sub>Expiry date</sub>
-        {application.expiry_date}
+        {formatDate(application.expiry_date)}
       </div>
     </div>
   );
