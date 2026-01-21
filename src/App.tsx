@@ -30,7 +30,6 @@ export interface Application {
 }
 
 
-
 function App() {
   const [applicationsData, setApplicationsData] = useState<Application[]>([]);
   const [apiPage, setApiPage] = useState(1); // Track API fetch page
@@ -48,10 +47,14 @@ function App() {
   const fetchApplications = async (pageNum: number) => {
     setLoading(true);
     try {
-      const response = await fetch(
+      const res = await fetch(
         `http://localhost:3001/api/applications?_page=${pageNum}&_limit=5`
       );
-      const data = await response.json() as Application[];
+
+      if (!res.ok) {
+        throw new Error(`There was an error fetching the applications: ${res.status}`);
+      }
+      const data = await res.json() as Application[];
 
       setApplicationsData((prev) => [...prev, ...data]);
     } catch (error) {
@@ -80,7 +83,7 @@ function App() {
       <Header />
       <Applications applicationsData={currentPageData} />
 
-      {totalPages > 0 && (
+      {totalPages > 1 && (
         <Pagination
           currentPage={currentDisplayPage}
           totalPages={totalPages}

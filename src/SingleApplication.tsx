@@ -19,7 +19,6 @@ const formatCurrency = (amount: number): string => {
 
 
 const SingleApplication: React.FC<SingleApplicationProps> = ({ application }) => {
-  console.log(application);
   return (
     <div className={styles.SingleApplication}>
       <div className={styles.cell}>
