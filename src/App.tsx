@@ -35,6 +35,7 @@ function App() {
 
       setApplicationsData((prev) => [...prev, ...data]);
     } catch (error) {
+      // same here - would have added in better error handling and would have displayed a snackbar or toast to the user for feedback
       console.error("Error fetching applications:", error);
     } finally {
       setLoading(false);
