@@ -13,3 +13,6 @@ Error handling:
 Testing:
 - Would have added in a test for the pagnination component
 - Would have installed playwight and created 1 end to end test
+
+- Styling
+- would have also added blue styling to email and made company and name bold text
